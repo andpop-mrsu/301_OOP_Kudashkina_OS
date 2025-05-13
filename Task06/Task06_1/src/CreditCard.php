@@ -4,17 +4,17 @@ namespace App;
 
 class CreditCard
 {
-    private $number;
-    private $expiration;
+    private $cardNumber;
+    private $expirationDate;
 
-    public function __construct($number, $expiration)
+    public function __construct($cardNumber, $expirationDate)
     {
-        $this->number = $number;
-        $this->expiration = $expiration;
+        $this->cardNumber = $cardNumber;
+        $this->expirationDate = $expirationDate;
     }
 
-    public function authorizeTransaction($amount)
+    public function transfer($amount)
     {
-        return "Authorization code: 234da";
+        return "Authorization code: 777";
     }
 }
