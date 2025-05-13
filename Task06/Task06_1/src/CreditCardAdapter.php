@@ -13,9 +13,9 @@ class CreditCardAdapter implements PaymentAdapterInterface
         $this->creditCard = $creditCard;
     }
 
-    public function collectMoney($amount)
+    public function collectMoney($amount): bool
     {
-        $result = $this->creditCard->transfer($amount);
+        $result = $this->creditCard->authorizeTransaction($amount);
         if (strpos($result, 'Authorization code:') !== false) {
             return true;
         }

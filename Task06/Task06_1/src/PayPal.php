@@ -13,7 +13,6 @@ class PayPal
         $this->password = $password;
     }
 
-    public function authorizeTransaction($amount)
     {
         return "PayPal Success!";
     }

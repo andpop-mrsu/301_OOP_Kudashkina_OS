@@ -15,7 +15,8 @@ class PaymentAdapterInterfaceTest extends TestCase
     {
         $paypal = new PayPal('customer@aol.com', 'password');
         $paypalAdapter = new PayPalAdapter($paypal);
-        $this->assertSame("PayPal Success!", $paypal->authorizeTransaction(100));
+
+        $this->assertSame("Paypal Success!", $paypal->transfer('customer@aol.com', 100));  // Передача email и суммы
         $this->assertTrue($paypalAdapter->collectMoney(100));
     }
 
@@ -23,7 +24,7 @@ class PaymentAdapterInterfaceTest extends TestCase
     {
         $cc = new CreditCard(1234567890123456, "09/22");
         $ccAdapter = new CreditCardAdapter($cc);
-        $this->assertSame("Authorization code: 777", $cc->transfer(200));
+        $this->assertSame("Authorization code: 234da", $cc->authorizeTransaction(200));
         $this->assertTrue($ccAdapter->collectMoney(200));
     }
 }
